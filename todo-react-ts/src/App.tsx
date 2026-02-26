@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import type { DragEvent } from "react";
+import "mobile-drag-drop";
 
 type TodoItem = {
   index: number;
@@ -350,7 +351,7 @@ export default function App() {
         : draggedItem
           ? ""
           : "hover:shadow-md"
-    } touch-manipulation active:scale-95
+    } touch-manipulation active:scale-95 draggable-element
   `}
                   key={item.index}
                   draggable
