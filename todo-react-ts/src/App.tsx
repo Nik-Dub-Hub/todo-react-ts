@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from "react";
 import type { DragEvent } from "react";
-import "mobile-drag-drop";
 
 type TodoItem = {
   index: number;
@@ -351,7 +350,7 @@ export default function App() {
         : draggedItem
           ? ""
           : "hover:shadow-md"
-    } touch-manipulation active:scale-95 draggable-element
+    }
   `}
                   key={item.index}
                   draggable
@@ -360,14 +359,6 @@ export default function App() {
                   onDragOver={handlerDragOver}
                   onDragEnter={(e) => handlerDragEnter(e)}
                   onDrop={() => handlerDrop(item)}
-                  onTouchStart={(e) => {
-                    e.currentTarget.style.zIndex = "1000";
-                    e.currentTarget.style.transform = "scale(1.02)";
-                  }}
-                  onTouchEnd={(e) => {
-                    e.currentTarget.style.zIndex = "";
-                    e.currentTarget.style.transform = "";
-                  }}
                 >
                   {setting.index === item.index && setting.visible ? (
                     <div className="w-full space-y-2">
